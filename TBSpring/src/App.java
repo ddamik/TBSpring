@@ -3,14 +3,20 @@ import java.sql.SQLException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import springbook.user.dao.CountingConnectionMaker;
+import springbook.user.dao.CountingDaoFactory;
 import springbook.user.dao.DaoFactory;
 import springbook.user.dao.UserDao;
 import springbook.user.domain.User;
 
-public class UserDaoTest {
+public class App {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		UserDaoTest();
+		UserDaoConnectionCountingTest();
+	}
 
+	public static void UserDaoTest() throws ClassNotFoundException, SQLException{
 		/*
 		//	NConnectionMaker를 만들었다면, 아래와 같이 만들면 된다.
 		//	ConnectionMaker connectionMaker = new NConnectionMaker();
@@ -20,8 +26,7 @@ public class UserDaoTest {
 														//	2. 사용할 ConnectionMaker 타입의 오브젝트 제공.
 														//	결국 두 오브젝트 사이의 의존관계 설정 효
 		 */
-		
-		
+				
 		/**
 		 *	DaoFactory처럼 @Configuration이 붙은 자바 코드를 설정정보로 사용하려면 AnnotationConfigApplicationContext를 사용한다.
 		 *	ApplicationContext의 getBean()이라는 메소드를 이용해 UserDao의 오브젝트를 가져올 수 있다.
@@ -46,7 +51,13 @@ public class UserDaoTest {
 		System.out.println(user2.getId());
 		System.out.println(user2.getName());
 		System.out.println(user2.getPassword());
-		
 	}
-
+	public static void UserDaoConnectionCountingTest() throws ClassNotFoundException, SQLException {
+		AnnotationConfigApplicationContext context =
+				new AnnotationConfigApplicationContext(CountingDaoFactory.class);
+		UserDao dao = context.getBean("userDao", UserDao.class);
+		
+		CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
+		System.out.println("Connection counter : " + ccm.getCounter());
+	}
 }
