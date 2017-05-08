@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DaoFactory -->
+<beans>
+	<bean id="connectionMake" class="springbook.user.dao.DConnectionMaker"/>
+	
+	<bean id="userDao" class="springbook.user.dao.UserDao">
+		<property name="connectionMaker" ref="connectionMaker"/>
+	</bean>
+</beans>
+
+
+
+
+
+<beans>
+	<bean id="localDBConnectionMaker" class="springbook.user.dao.LocalDBConnectionMaker"/>
+	<bean id="testDBConnectionMaker" class="springbook.user.dao.TestDBConnectionMaker"/>
+	<bean id="productionDBConnectionMaker" class="springbook.user.dao.ProductionDBConnectionMaker"/>
+	
+	<bean id="userDao" class="springbook.user.dao.UserDao">
+		<property name="connectionMaker" ref="localDBConnectionMaker"/>
+	</bean>
+</beans>
+
+
+
+
