@@ -1,7 +1,6 @@
-package springbook.user.dao;
+package springbook.user.dao.dataSource;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,9 +9,9 @@ import javax.sql.DataSource;
 
 import springbook.user.domain.User;
 
-public class UserDao {
-	
-	private DataSource dataSource;
+public class UserDaoDataSource {
+
+	private DataSource dataSource;	//	java에서 제공하는 interface
 	
 	public void setDataSource(DataSource dataSource){
 		this.dataSource = dataSource;
@@ -33,7 +32,7 @@ public class UserDao {
 	}
 	
 	public User get(String id) throws ClassNotFoundException, SQLException {
-		Connection c = dataSource.getConnection();
+		Connection c = dataSource.getConnection();	
 		
 		PreparedStatement ps = c.prepareStatement(
 				"select * from users where id = ?");
