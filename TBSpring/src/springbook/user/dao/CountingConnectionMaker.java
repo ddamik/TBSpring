@@ -31,7 +31,9 @@ public class CountingConnectionMaker implements ConnectionMaker{
 	
 	public Connection makeConnection() throws ClassNotFoundException, SQLException {
 		this.counter++;
-		return realConnectionMaker.makeConnection();
+		return realConnectionMaker.makeConnection();	//	CountingConnectionMaker가 받은 realConnectionMaker의
+														//	makeConnection()을 return.
+	
 	}
 	
 	public int getCounter(){

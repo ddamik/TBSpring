@@ -1,14 +1,13 @@
 import java.sql.SQLException;
 
+import org.junit.runner.JUnitCore;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
+
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import springbook.user.dao.ConnectionMaker;
 import springbook.user.dao.CountingConnectionMaker;
 import springbook.user.dao.CountingDaoFactory;
-import springbook.user.dao.DConnectionMaker;
 import springbook.user.dao.DaoFactory;
 import springbook.user.dao.UserDao;
 import springbook.user.domain.User;
@@ -16,9 +15,17 @@ import springbook.user.domain.User;
 public class App {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//		UserDaoTest();
-//		UserDaoConnectionCountingTest();
-		UserDaoXmlApplicationContext();
+		// UserDaoTest();
+		// UserDaoConnectionCountingTest();
+		// UserDaoXmlApplicationContext();
+
+		// 2장.
+		// UpdateUserDaoTest();
+
+		/**
+		 * JUnit Test
+		 */
+		JUnitCore.main("test.UserDaoTest");
 	}
 
 	public static void UserDaoTest() throws ClassNotFoundException, SQLException {
@@ -82,5 +89,25 @@ public class App {
 		System.out.println(user2.getId());
 		System.out.println(user2.getName());
 		System.out.println(user2.getPassword());
+	}
+
+	public static void UpdateUserDaoTest() throws ClassNotFoundException, SQLException {
+		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+		UserDao dao = context.getBean("userDao", UserDao.class);
+
+		User user = new User();
+		user.setId("whiteship");
+		user.setName("ddamik");
+		user.setPassword("password");
+
+		dao.add(user);
+		User user2 = dao.get(user.getId());
+
+		if (!user.getName().equals(user2.getName()))
+			System.out.println("테스트 실패 (name)");
+		else if (!user.getPassword().equals(user2.getPassword()))
+			System.out.println("테스트 실패 (password)");
+		else
+			System.out.println("조회 테스트 성공.");
 	}
 }

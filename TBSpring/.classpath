@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-webmvc-portlet-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-websocket-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-jdbc-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/ddamik/Downloads/com.springsource.org.junit-4.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
