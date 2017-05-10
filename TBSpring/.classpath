@@ -19,7 +19,6 @@
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-messaging-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-orm-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-oxm-4.3.7.RELEASE.jar"/>
-	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-test-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-tx-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-web-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-webmvc-4.3.7.RELEASE.jar"/>
@@ -27,5 +26,6 @@
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-framework-4.3.7.RELEASE/libs/spring-websocket-4.3.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-jdbc-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/Users/ddamik/Downloads/com.springsource.org.junit-4.7.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ddamik/Downloads/spring-test-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
